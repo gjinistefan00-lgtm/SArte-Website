@@ -99,7 +99,8 @@ header nav a:hover { color: #c59d5f; }
 /* ===================== */
 .hero {
   position: relative;               /* for overlay if needed */
-  min-height: 100vh;                /* full screen */
+  min-height: 100vh; 
+  height: auto;               /* full screen */
   background-image: url("images/0X6A0670.jpeg"); /* hero background image */
   background-size: cover;           /* cover whole section */
   background-position: center;      /* center the image */
@@ -110,7 +111,7 @@ header nav a:hover { color: #c59d5f; }
   align-items: center;              /* horizontal center */
   text-align: center;
   color: white;                     /* text on top of image */
-  padding: 0 20px;
+  padding: 80px 20px;
 }
 
 /* optional: add a dark overlay for readability */
