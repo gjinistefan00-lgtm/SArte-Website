@@ -5,124 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SArtè – Fashion Brand</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
 
+    <header id="site-header">
+        <h1><a href="index.html">SArtè</a></h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
 
-<!-- HEADER -->
-<header id="site-header">
-    <h1><a href="index.html">SArtè</a></h1>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-
-        <div class="dropdown">
-            <a href="gallery.html" class="dropbtn">Collection</a>
-            <div class="dropdown-content">
-                <a href="gallery.html">Breath of Blossoms</a>
-                <a href="gallery.html#breath-of-blossoms">Our Collection</a>
+            <div class="dropdown">
+                <a href="gallery.html" class="dropbtn">Collection <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="gallery.html">Breath of Blossoms</a>
+                    <a href="gallery.html#breath-of-blossoms">Our Full Collection</a>
+                </div>
             </div>
+
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-container">
+    <video autoplay muted loop playsinline class="hero-bg-video">
+        <source src="videos/hero.mp4" type="video/mp4">
+    </video>
+    
+    <div class="hero-overlay"></div>
+
+    <div class="hero-text">
+        <h2>SArtè</h2>
+        <p class="byline">by Sarita Gjini</p>
+    </div>
+</section>
+
+        <section class="shop-now-section">
+            <div class="section-intro">
+                <h2 class="title">Breath of Blossoms | Our Collection</h2>
+                <p class="subtitle">CAREFULLY CROCHETED</p>
+            </div>
+            
+            <div class="collection-row">
+                <div class="images">
+                    <img src="images/FloweredGoddessWrap.jpg" alt="Flowered Goddess Wrap" loading="eager">
+                    <img src="images/KnittedBlossomDrape.jpg" alt="Knitted Blossom Drape" loading="eager">
+                </div>
+                
+                <div class="view-all-container">
+                    <a href="gallery.html" class="view-all-btn">View All</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <div class="about-block">
+                    <h2>About SArtè</h2>
+                </div>
+
+                <div class="about-block intro-text">
+                    <p>
+                        SArtè is a modern fashion brand where fashion is turned into art, and every piece is handmade with caution, detail, passion, and love. 
+                    </p>
+                </div>
+
+                <div class="about-block">
+                    <p>
+                        SArtè’s story begins with Altina, the mother of Sarita. When Altina was 16 years old, she developed a love for artisanal creations. Through perseverance, she nurtured a talent for creating unique garments, yet circumstances never allowed her to reach her full potential.
+                    </p>
+                </div>
+
+                <div class="about-block">
+                    <p>
+                        Her daughter, Sarita, inherited this passion and developed a burning desire to see it flourish. Witnessing such talent go undervalued in a small shop in Shkodër, Sarita knew the artistry deserved more than recognition — it demanded action. At 17 years old, she began sketching what would become her first collection, turning inherited creativity into a bold statement of modern style.
+                    </p>
+                </div>
+
+                <div class="about-block">
+                    <p>
+                        Guided by dedication and a commitment to quality and originality, she applied to the Muza Competition. This became a defining achievement, symbolizing courage, ambition, and the drive to elevate handcrafted fashion. Every stitch, texture, and detail from SArtè embodies a history of dedication, artistry, and timeless elegance — crafted for those brave enough to express individuality.
+                    </p>
+                </div>
+
+                <div class="about-block">
+                    <p>
+                        After the prestigious Muza Competition, Sarita was awarded the opportunity to present her collection, “Breath of Blossom,” at Paris Fashion Week 2026 — a turning point that introduced SArtè to an international audience.
+                    </p>
+                </div>
+
+                <div class="about-block">
+                    <p>
+                        Following Paris Fashion Week 2026, Sarita showcased her collection at Biscayne Showroom in Miami, where it was met with great acclaim. From there, she expanded the brand internationally, collaborating with influencers and fashion bloggers to increase visibility. SArtè’s unique blend of traditional craftsmanship and contemporary design continues to resonate with fashion enthusiasts worldwide.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="site-footer">
+        <div class="footer-contacts">
+            <a href="https://www.instagram.com/sarte_design_" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="mailto:gjinisarita@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="tel:+355697471852" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://www.tiktok.com/@sarte_design_" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" target="_blank" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
         </div>
 
-        <a href="#contact">Contact Us</a>
-    </nav>
-</header>
+        <div class="footer-bottom">
+            <span>© 2026 SArtè. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="terms.html">Terms of Use</a>
+                <a href="Privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
 
-
-<!-- HERO SECTION -->
-<section id="home" class="hero">
-    <h2>SArtè</h2>
-    <p class="byline">by Sarita Gjini</p>
-
-</section>
-<!-- SHOP NOW SECTION -->
- <div class="shop-now-section">
-    <div class ="text-block"></div>
-   <h2 class="title inline-richtext h2">Breath of Blossoms | Our Collection</h2>
-   <p>CAREFULLY CROCHETED</p>  
-   <div class="collection row">
-    <div class="images">
-      <img src="images/FloweredGoddessWrap.jpg" alt="Product 1" loading="eager">
-      <img src="images/KnittedBlossomDrape.jpg" alt="Product 2" loading="eager">
-    </div>
-   </div>
-   <div class="view-all-container">
-  <a href="gallery.html" class="view-all-btn">View All</a>
-   </div>
-</div>
-<!-- ABOUT SECTION -->
-<section id="about" class="about-section">
-
-  <div class="about-block">
-    <h2>About SArtè</h2>
-  </div>
-
-  <div class="about-block">
-    <p>
-      SArtè is a modern fashion brand where fashion is turned into art, and every piece is handmade with caution, detail, passion, and love. SArtè’s story begins with Altina, the mother of Sarita. When Altina was 16 years old, she developed a love for artisanal creations. Through perseverance, she nurtured a talent for creating unique garments, yet circumstances never allowed her to reach her full potential.
-    </p>
-  </div>
-
-  <div class="about-block">
-    <p>
-      Her daughter, Sarita, inherited this passion and developed a burning desire to see it flourish. Witnessing such talent go undervalued in a small shop in Shkodër, Sarita knew the artistry deserved more than recognition — it demanded action. At 17 years old, she began sketching what would become her first collection, turning inherited creativity into a bold statement of modern style.
-    </p>
-  </div>
-
-  <div class="about-block">
-    <p>
-      Guided by dedication and a commitment to quality and originality, she applied to the Muza Competition. This became a defining achievement, symbolizing courage, ambition, and the drive to elevate handcrafted fashion. Every stitch, texture, and detail from SArtè embodies a history of dedication, artistry, and timeless elegance — crafted for those brave enough to express individuality.
-    </p>
-  </div>
-
-  <div class="about-block">
-    <p>
-      After the prestigious Muza Competition, Sarita was awarded the opportunity to present her collection, “Breath of Blossom,” at Paris Fashion Week 2026 — a turning point that introduced SArtè to an international audience.
-    </p>
-  </div>
-
-  <div class="about-block">
-    <p>
-      Following Paris Fashion Week 2026, Sarita showcased her collection at Biscayne Showroom in Miami, where it was met with great acclaim. From there, she expanded the brand internationally, collaborating with influencers and fashion bloggers to increase visibility. SArtè’s unique blend of traditional craftsmanship and contemporary design continues to resonate with fashion enthusiasts worldwide.
-    </p>
-  </div>
-
-</section>
-
-
-<!-- FOOTER / CONTACT -->
-<footer id="contact" class="site-footer">
-
-    <!-- CONTACTS -->
-    <div class="footer-contacts">
-        <a href="https://www.instagram.com/sarte_design_" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-        <a href="mailto:gjinisarita@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-        <a href="tel:+355697471852"><i class="fa-solid fa-phone"></i></a>
-        <a href="https://www.tiktok.com/@sarte_design_" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="url of reddit"target="a_blank"><i class="fa-brands fa-reddit"></i></a>
-        <a href="url of twitter"target="a_blank"><i class="fa-brands fa-twitter"></i></a>
-        <a href="https://pin.it/1JhR1SGwJ"target="a_blank"><i class="fa-brands fa-pinterest"></i></a>
-    </div>
-
-    <!-- BOTTOM TEXT -->
-    <div class="footer-bottom">
-        <span>© 2026 SArtè. All rights reserved.</span>
-        <a href="terms.html">Terms of Use</a>
-        <a href="Privacy.html">Privacy Policy</a>
-    </div>
-
-</footer>
-<script src="script.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

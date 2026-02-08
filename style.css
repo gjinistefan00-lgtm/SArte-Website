@@ -95,40 +95,76 @@ header nav a {
 header nav a:hover { color: #c59d5f; }
 
 /* ===================== */
-/* HERO */
+/* HERO SECTION (FORCED VISIBLE) */
 /* ===================== */
 .hero {
-  position: relative;               /* for overlay if needed */
-  min-height: 100vh; 
-  height: auto;               /* full screen */
-  background-image: url("images/0X6A0670.jpeg"); /* hero background image */
-  background-size: cover;           /* cover whole section */
-  background-position: center;      /* center the image */
-  background-repeat: no-repeat;     /* don’t tile */
-  display: flex;                    /* center content */
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
   flex-direction: column;
-  justify-content: center;          /* vertical center */
-  align-items: center;              /* horizontal center */
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  color: white;                     /* text on top of image */
-  padding: 80px 20px;
+  color: white;
+  overflow: hidden;
+  background-color: #000; /* Black base */
+  
+  /* FORCE VISIBILITY: Overrides the global section { opacity: 0 } */
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  animation: none !important; 
 }
 
-/* optional: add a dark overlay for readability */
+/* The Video Styling */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  z-index: 1; /* Moved up to 1 */
+  background: transparent;
+}
+
+/* Re-added a Clean Dark Overlay */
 .hero::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.4); /* semi-transparent overlay */
-  z-index: 0;
+  inset: 0; /* Shortcut for top/left/right/bottom: 0 */
+  background: rgba(0, 0, 0, 0.4); /* Darkens video for text readability */
+  z-index: 2; /* Sits on top of video */
+  pointer-events: none;
 }
 
-.hero h2,
+/* Text Content Layering */
+.hero-content {
+  position: relative;
+  z-index: 3; /* Sits on top of everything */
+  padding: 0 20px;
+}
+
+.hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 10vw, 6rem); 
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Helps text pop */
+}
+
 .hero .byline {
-  position: relative;  /* sit above overlay */
-  z-index: 1;
-  color: white;
+  font-size: 1.1rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #fff;
 }
 /* ===================== */
 /* SHOP NOW SECTION */
@@ -136,21 +172,29 @@ header nav a:hover { color: #c59d5f; }
 .shop-now-section {
   font-family: 'Playfair Display', serif;
   font-weight: 400;
-  min-height: 140vh;
+  min-height: 100vh; /* Changed from 140vh to avoid excessive empty space */
   position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 60px 20px;
+  padding: 120px 20px; /* Increased top padding for better breathing room */
   text-align: center;
-  text-emphasis: none;
   color: black;
-  max-width: 500px;
-  margin-left: 10%;
+  max-width: 1200px;  /* Increased from 500px so your images can actually fit */
+  margin: 0 auto;     /* Centered the section instead of pushing 10% from left */
 }
+
+/* The specific "Breath of Blossoms" Header */
+.shop-now-section h2.title {
+  font-size: 2.5rem;
+  margin-bottom: 20px; /* Space between Title and Subtitle */
+}
+
+.shop-now-section p {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 80px; /* THIS adds the big space between the text and the photos */
+}
+
 .left-content {
-  width: 40%;
-  margin-left: 10%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -159,15 +203,18 @@ header nav a:hover { color: #c59d5f; }
 /* images + button row */
 .collection-row {
   display: flex;
-  align-items: flex-end;      /* button aligns nicely */
-  justify-content: space-between;
-  gap: 500px;
+  flex-direction: column; /* Stacked vertically to keep the "View All" below the images */
+  align-items: center;
+  justify-content: center;
+  gap: 40px; /* Controlled space between images and the "View All" button */
 }
 
 /* images group */
 .images {
   display: flex;
-  gap: 35px;
+  gap: 35px; /* Original gap between the two photos */
+  justify-content: center;
+  flex-wrap: wrap; /* Allows photos to stack on tablets/phones */
 }
 
 .images img {
@@ -175,11 +222,24 @@ header nav a:hover { color: #c59d5f; }
   height: 500px;
   object-fit: cover;
   border-radius: 6px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .images img:hover { 
   transform: scale(1.02);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Responsive fix for smaller screens */
+@media (max-width: 768px) {
+  .images img {
+    width: 100%; /* Photos take full width on mobile */
+    max-width: 350px;
+    height: auto;
+  }
+  .shop-now-section p {
+    margin-bottom: 40px; /* Slightly less space on mobile */
+  }
 }
 /* ===================== */
 /* SECTIONS */
@@ -434,71 +494,64 @@ section p {
 /* ABOUT SECTION */
 /* ===================== */
 .about-section {
-  min-width: 140vh;
-  min-height: 180vh;
+  min-height: 100vh; /* Changed from min-width to min-height */
   position: relative;
-  background-image: url("images/IMG_2551.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  padding: 120px 20px;
+  background: url("images/IMG_2551.jpeg") center/cover no-repeat fixed; /* Added 'fixed' for a high-end parallax feel */
+  padding: 140px 10%; /* More side breathing room */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: white;
+  overflow: hidden;
 }
 
-/* overlay */
+/* Darker, more elegant overlay */
 .about-section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.45);
+  background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)); /* Gradient makes text on left easier to read */
   z-index: 0;
 }
 
-/* content blocks */
+/* Content blocks refined */
 .about-section .about-block {
   position: relative;
   z-index: 1;
-
-  max-width: 600px;        /* controls reading width */
-  margin-left: 5%;          /* small space from left edge */
-  margin-right: auto;       /* ensures block doesn’t stretch right */
-  margin-bottom: 28px;
-
-  text-align: left;         /* ensures text aligns left */
-  
+  max-width: 650px; /* Optimal reading width for long text */
+  margin-bottom: 24px;
+  text-align: left;
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInBlock 0.8s ease forwards;
+  transform: translateY(30px);
+  animation: fadeInBlock 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
+/* Staggered animation delays */
+.about-block:nth-child(1) { animation-delay: 0.2s; }
+.about-block:nth-child(2) { animation-delay: 0.4s; }
+.about-block:nth-child(3) { animation-delay: 0.6s; }
+.about-block:nth-child(4) { animation-delay: 0.8s; }
+.about-block:nth-child(5) { animation-delay: 1.0s; }
+.about-block:nth-child(6) { animation-delay: 1.2s; }
+.about-block:nth-child(7) { animation-delay: 1.4s; }
 
-/* stagger */
-.about-section .about-block:nth-of-type(1) { animation-delay: 0.2s; }
-.about-section .about-block:nth-of-type(2) { animation-delay: 0.4s; }
-.about-section .about-block:nth-of-type(3) { animation-delay: 0.6s; }
-.about-section .about-block:nth-of-type(4) { animation-delay: 0.8s; }
-.about-section .about-block:nth-of-type(5) { animation-delay: 1s; }
-.about-section .about-block:nth-of-type(6) { animation-delay: 1.2s; }
-
-/* title */
+/* Typography improvements */
 .about-section h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem); /* Scales beautifully based on screen size */
   margin-bottom: 40px;
-  line-height: 1.1;
-  text-align: left;
+  line-height: 1.2;
+  letter-spacing: 1px;
 }
 
-/* text */
 .about-section p {
-  font-size: 1rem;
-  line-height: 1.9;
-  color: #f2f2f2;
-  text-align: left;
+  font-size: 1.05rem;
+  line-height: 1.8; /* Increased for cleaner look */
+  color: rgba(255, 255, 255, 0.9); /* Slightly off-white is easier on the eyes */
+  margin-bottom: 15px;
 }
 
-/* animation */
+/* Animation */
 @keyframes fadeInBlock {
   to {
     opacity: 1;
@@ -506,31 +559,35 @@ section p {
   }
 }
 
-
 /* ===================== */
-/* RESPONSIVE */
+/* RESPONSIVE REFINEMENT */
+/* ===================== */
 @media (max-width: 768px) {
-  header { padding: 15px 20px; flex-direction: column; align-items: flex-start; }
-  header nav { margin-top: 10px; }
-  header nav a { margin-left: 0; margin-right: 15px; font-size: 0.9rem; }
+  .about-section {
+    padding: 100px 20px;
+    background-attachment: scroll; /* Parallax fixed background feels 'heavy' on mobile */
+  }
 
-  .hero h2 { font-size: 3rem; }
+  .about-section .about-block {
+    max-width: 100%;
+    margin-left: 0;
+  }
 
-  .about-section { padding: 40px 15px; }
-  .about-section h2 { font-size: 2.2rem; }
-  .about-section h3 { font-size: 1.4rem; }
+  .about-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+  }
+  
+  .about-section p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
 }
 
 @media (max-width: 480px) {
   .hero h2 { font-size: 2.4rem; }
-  .gallery-item { width: 180px; }
   .gallery { grid-template-columns: 1fr; }
 }
-@media (max-width: 768px) {
-  .text {
-    width: 100%;
-  }
-} 
 /* ===================== */
 /* PRODUCT PAGE FULL COVER */
 /* ===================== */
@@ -717,8 +774,13 @@ footer.site-footer {
 }
 
 .view-all-btn:hover {
-  color: #111;
-  background-color: #fff;
+  color: #ffffff;
+  background-color: #000000;
   border-color: #111;
   transform: scale(1.05);  /* subtle hover effect */
+}
+#site-header {
+  /* ... your existing styles ... */
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+  will-change: transform; /* Helps with performance */
 }
